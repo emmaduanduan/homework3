@@ -1,0 +1,116 @@
+<html>
+  <head></head>
+  <body>
+    <!-- Problem 1 -->
+    <table id="table">
+      <tr>
+        <th>studentName</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+    </table>
+
+    <script>
+      const tableInfo = [
+        {
+          studentName: "John",
+          Age: 19,
+          Phone: "455 - 983 - 0903",
+          Address: "123 Ave, San Francisco, CA, 94011",
+        },
+        {
+          studentName: "Alex",
+          Age: 21,
+          Phone: "455 - 983 - 0912",
+          Address: "456 Rd, San Francisco, CA, 94012",
+        },
+        {
+          studentName: "Josh",
+          Age: 22,
+          Phone: "455 - 345 - 0912",
+          Address: "789 Dr, Newark, CA, 94016",
+        },
+        {
+          studentName: "Matt",
+          Age: 23,
+          Phone: "321 - 345 - 0912",
+          Address: "223 Dr, Sunnyvale, CA, 94016",
+        },
+      ];
+      a = document.getElementById("table");
+      for (var i = 0; i < tableInfo.length; i++) {
+        var newRow = a.insertRow(a.length);
+        var cell0 = newRow.insertCell();
+        cell0.innerHTML = tableInfo[i].studentName;
+        var cell1 = newRow.insertCell();
+        cell1.innerHTML = tableInfo[i].Age;
+        var cell2 = newRow.insertCell();
+        cell2.innerHTML = tableInfo[i].Phone;
+        var cell3 = newRow.insertCell();
+        cell3.innerHTML = tableInfo[i].Address;
+      }
+    </script>
+
+    <!-- Problem 2 -->
+    <div id="list"></div>
+    <script type="text/javascript">
+      const list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
+
+      var newList = document.createElement("ul");
+
+      // Create a <ul> element
+      var newUL = document.getElementById("list").appendChild(newList);
+
+      function buildList() {
+        for (var i = 0; i < list.length; i++) {
+          // Create a text node
+          var newTextNode = document.createTextNode(list[i]);
+
+          // Create a list element
+          var newListItem = document.createElement("li");
+
+          // Append text node and list item
+          newListItem.appendChild(newTextNode);
+          newUL.appendChild(newListItem);
+        }
+      }
+
+      buildList();
+    </script>
+
+    <!-- Problem 3 -->
+    <div id="dropdown"></div>
+    <script type="text/javascript">
+      const dropDownList = [
+        { value: "newark", content: "Newark" },
+        { value: "santaClara", content: "Santa Clara" },
+        { value: "unionCity", content: "Union City" },
+        { value: "albany", content: "Albany" },
+        { value: "dalyCity", content: "Daly City" },
+        { value: "sanJose", content: "San Jose" },
+      ];
+      function createSelect(name, str) {
+        var _select = document.createElement("select");
+        var firstOption = document.createElement("option");
+        firstOption.value = "newark";
+        firstOption.text = "Newark";
+        _select.appendChild(firstOption);
+        for (i = 0; i < str.length; i++) {
+          var _option = document.createElement("option");
+          _option.value = str[i].value;
+          _option.text = str[i].content;
+          if (name == str[i]) {
+            _option.selected = "true";
+          }
+          _select.appendChild(_option);
+        }
+        return _select;
+      }
+
+      document
+        .getElementById("dropdown")
+        .appendChild(createSelect("Newark", dropDownList));
+    </script>
+  </body>
+</html>
